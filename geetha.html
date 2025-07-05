@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music</title>
+</head>
+<body>
+
+<h2>🎶 My Playlist</h2>
+  <a href="index.html"></a>
+
+<audio id="audioPlayer" controls>
+    <source src="Srivalli.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+<br><br>
+
+<button onclick="playSong()">▶️ Play</button>
+<button onclick="pauseSong()">⏸️ Pause</button>
+<button onclick="playNext()">⏭️ Next</button>
+
+<script>
+    // ✅ Full song list
+    const songs = [
+        
+    ];
+
+    let currentIndex = 0;
+    const audio = document.getElementById("audioPlayer");
+
+    function playSong() {
+        audio.play();
+    }
+
+    function pauseSong() {
+        audio.pause();
+    }
+
+    function nextsong(){
+        audio.next();
+    }
+
+    function playNext() {
+        currentIndex = (currentIndex + 1) % songs.length;
+        audio.src = songs[currentIndex];
+        audio.load();
+        audio.play();
+    }
+
+    // ✅ Auto play next song when current one ends
+    audio.addEventListener("ended", function () {
+        playNext();
+    });
+</script>
+
+<!-- Optional: display playlist -->
+<li id="mySong">
+    <li>Ninne Ninne Kora</li>
+    <li>Chamka Chamka</li>
+    <li>Paravaledu</li>
+    <li>Puduthune Uyyala</li>
+    <li>Magallu</li>
+    <li>Ettantee Mogudu</li>
+    <li>We Love Bad Boys</li>
+    <li>Top Lesi Poddi</li>
+    <li>Raaye Raaye</li>
+    <li>Darlingey</li>
+    <li>Ittage Recchipodham</li>
+    <li>Jeevanadhi</li>
+    <li>Pakka Local</li>
+    <li>Door Number Okati</li>
+    <li>Deo Deo</li>
+    <li>Box Badalipayo</li>
+    <li>Akkada Vunnavadu</li>
+    <li>Mahanubhavudu</li>
+    <li>Dibiri Dibiri</li>
+    <li>Jorse Jorse</li>
+    <li>Na Kosam</li>
+    <li>Nagara Nagara</li>
+    <li>Melikalu</li>
+    <li>Konte Choopulu</li>
+    <li>Dhimmathirigae</li>
+    <li>Pandaga Chesko</li>
+    <li>Aibaaboi Nee Choopu</li>
+    <li>Dillaku Dillaku</li>
+    <li>O My God</li>
+    <li>Telugammayi</li>
+    <li>Endukamma Prema Prema</li>
+</ul>
+</body>
+</html>
+
